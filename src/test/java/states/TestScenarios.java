@@ -45,6 +45,13 @@ class TestScenarios {
 	  assertEquals(2, AbstractTimer.getMemTimer(),"value of memTimer ");
 	  assertEquals(1, AbstractTimer.getTimer(),"value of timer ");
 
+	  c.right(); // stop the timer
+	  assertSame(IdleTimer.Instance(), c.currentState);
+	  assertEquals(2, AbstractTimer.getMemTimer(),"value of memTimer ");
+
+	  c.up(); // start running the timer
+	  c.tick();
+
 	  c.up(); // pause the timer
 	  c.tick();
 	  assertSame(PausedTimer.Instance(), c.currentState);
@@ -105,6 +112,6 @@ class TestScenarios {
 	  assertSame(IdleTimer.Instance(), c.currentState);
 	  assertEquals(2, AbstractTimer.getMemTimer(),"value of memTimer ");
 	  assertEquals(0, AbstractTimer.getTimer(),"value of timer ");
-	  }
+	}
 
 }
