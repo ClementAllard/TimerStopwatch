@@ -30,4 +30,18 @@ class TestStopwatchLabels extends TestGUIAbstract {
     	assertEquals("RunningStopwatch",g.myText3.getText());
     }
 
+	@Test
+	void testStopwatch3() {
+		c.left(); //simulate clicking on the left button
+		c.up(); //simulate clicking on the right button
+		c.up(); //simulate clicking on the right button
+		g.updateUI(c); //apply the effect on the user interface
+		assertEquals("change mode",g.b1.getText());
+		assertEquals("unsplit",g.b2.getText());
+		assertEquals("(unused)",g.b3.getText());
+		assertEquals("lapTime = 0",g.myText1.getText());
+		assertEquals("stopwatch",g.myText2.getText());
+		assertEquals("LaptimeStopwatch",g.myText3.getText());
+	}
+
 }
